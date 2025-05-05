@@ -1,0 +1,2207 @@
+{
+	"COMMENT": "Potassium: https://docs.potassium.pro",
+	"COMMENT": "TODO: maybe use sUNC docs to improve https://github.com/sUNC-Utilities/Global-Functions-Documentation",
+
+	"COMMENT": "############### Undocumented ###############",
+	"COMMENT": "############### Undocumented ###############",
+	"COMMENT": "############### Undocumented ###############",
+	"@roblox/global/getfunctionhash/param/0": {
+		"documentation": "The function to get the hash of."
+	},
+	"@roblox/global/getfunctionhash/return/0": {
+		"documentation": "A Hex represented SHA384 hash of the function's bytecode."
+	},
+	"@roblox/global/getfunctionhash": {
+		"documentation": "Returns a Hex represented SHA384 hash of the provided function's re-built bytecode, for C closures the c.f pointer should be hashed.",
+		"params": [
+			{
+				"name": "func",
+				"documentation": "@roblox/global/getfunctionhash/param/0"
+			}
+		],
+		"returns": ["@roblox/global/getfunctionhash/return/0"],
+		"learn_more_link": "https://github.com/sUNC-Utilities/Global-Functions-Documentation/blob/9e0d36d063c01bfaeb81ed6e0433d2fa064a90bc/Libraries/Closures.md#getfunctionhash",
+		"code_sample": ""
+	},
+
+	"COMMENT": "############### Cache ###############",
+	"COMMENT": "############### Cache ###############",
+	"COMMENT": "############### Cache ###############",
+	"@roblox/global/cache": {
+		"documentation": "TODO",
+		"keys": {
+			"invalidate": "@roblox/global/cache.invalidate",
+			"iscached": "@roblox/global/cache.iscached",
+			"replace": "@roblox/global/cache.replace"
+		},
+		"learn_more_link": "https://docs.potassium.pro/",
+		"code_sample": ""
+	},
+	"@roblox/global/cache.invalidate/param/0": {
+		"documentation": ""
+	},
+	"@roblox/global/cache.invalidate": {
+		"documentation": "Deletes `object` from the Instance cache. Effectively invalidates `object` as a reference to the underlying Instance.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/cache.invalidate/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/#cache.invalidate",
+		"code_sample": ""
+	},
+	"@roblox/global/cache.iscached/param/0": {
+		"documentation": ""
+	},
+	"@roblox/global/cache.iscached/return/0": {
+		"documentation": ""
+	},
+	"@roblox/global/cache.iscached": {
+		"documentation": "Checks whether `object` exists in the Instance cache.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/cache.iscached/param/0"
+			}
+		],
+		"returns": ["@roblox/global/cache.iscached/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/#cache.iscached",
+		"code_sample": ""
+	},
+	"@roblox/global/cache.replace/param/0": {
+		"documentation": ""
+	},
+	"@roblox/global/cache.replace/param/1": {
+		"documentation": ""
+	},
+	"@roblox/global/cache.replace": {
+		"documentation": "Replaces `object` in the Instance cache with `newObject`.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/cache.replace/param/0"
+			},
+			{
+				"name": "newObject",
+				"documentation": "@roblox/global/cache.replace/param/1"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/#cache.replace",
+		"code_sample": ""
+	},
+	"@roblox/global/cloneref/param/0": {
+		"documentation": ""
+	},
+	"@roblox/global/cloneref/return/0": {
+		"documentation": ""
+	},
+	"@roblox/global/cloneref": {
+		"documentation": "Returns a copy of the Instance reference to `object`. This is useful for managing an Instance without directly referencing it.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/cloneref/param/0"
+			}
+		],
+		"returns": ["@roblox/global/cloneref/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/#cloneref",
+		"code_sample": ""
+	},
+	"@roblox/global/compareinstances/param/0": {
+		"documentation": ""
+	},
+	"@roblox/global/compareinstances/param/1": {
+		"documentation": ""
+	},
+	"@roblox/global/compareinstances/return/0": {
+		"documentation": ""
+	},
+	"@roblox/global/compareinstances": {
+		"documentation": "Returns whether `a` and `b` both reference the same Instance.",
+		"params": [
+			{
+				"name": "a",
+				"documentation": "@roblox/global/compareinstances/param/0"
+			},
+			{
+				"name": "b",
+				"documentation": "@roblox/global/compareinstances/param/1"
+			}
+		],
+		"returns": ["@roblox/global/compareinstances/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/#compareinstances",
+		"code_sample": ""
+	},
+
+	"COMMENT": "############### Closures ###############",
+	"COMMENT": "############### Closures ###############",
+	"COMMENT": "############### Closures ###############",
+	"@roblox/global/checkcaller/return/0": {
+		"documentation": ""
+	},
+	"@roblox/global/checkcaller": {
+		"documentation": "Returns whether the function currently running was called by the executor.\n\nThis is useful for metamethod hooks that behave differently when called by the game.",
+		"params": [],
+		"returns": ["@roblox/global/checkcaller/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/closures#checkcaller",
+		"code_sample": ""
+	},
+	"@roblox/global/clonefunction/param/0": {
+		"documentation": ""
+	},
+	"@roblox/global/clonefunction/return/0": {
+		"documentation": ""
+	},
+	"@roblox/global/clonefunction": {
+		"documentation": "Generates a new closure based on the bytecode of `func`.",
+		"params": [
+			{
+				"name": "func",
+				"documentation": "@roblox/global/clonefunction/param/0"
+			}
+		],
+		"returns": ["@roblox/global/clonefunction/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/closures#clonefunction",
+		"code_sample": ""
+	},
+	"@roblox/global/getcallingscript/return/0": {
+		"documentation": ""
+	},
+	"@roblox/global/getcallingscript": {
+		"documentation": "Returns the script responsible for the currently running function.",
+		"params": [],
+		"returns": ["@roblox/global/getcallingscript/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/closures#getcallingscript",
+		"code_sample": ""
+	},
+	"@roblox/global/hookfunction/param/0": {
+		"documentation": ""
+	},
+	"@roblox/global/hookfunction/param/1": {
+		"documentation": ""
+	},
+	"@roblox/global/hookfunction/return/0": {
+		"documentation": ""
+	},
+	"@roblox/global/hookfunction": {
+		"documentation": "Replaces `func` with `hook` internally, where `hook` will be invoked in place of `func` when called. \n\nReturns a new function that can be used to access the original definition of `func`.\n\nIf `func` is a Luau function (`islclosure(func) --> true`), the upvalue count of `hook` must be less than or equal to that of `func`.",
+		"params": [
+			{
+				"name": "func",
+				"documentation": "@roblox/global/hookfunction/param/0"
+			},
+			{
+				"name": "hook",
+				"documentation": "@roblox/global/hookfunction/param/1"
+			}
+		],
+		"returns": ["@roblox/global/hookfunction/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/closures#hookfunction",
+		"code_sample": ""
+	},
+	"@roblox/global/iscclosure/param/0": {
+		"documentation": ""
+	},
+	"@roblox/global/iscclosure/return/0": {
+		"documentation": ""
+	},
+	"@roblox/global/iscclosure": {
+		"documentation": "Returns whether or not `func` is a closure whose source is written in C.",
+		"params": [
+			{
+				"name": "func",
+				"documentation": "@roblox/global/iscclosure/param/0"
+			}
+		],
+		"returns": ["@roblox/global/iscclosure/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/closures#iscclosure",
+		"code_sample": ""
+	},
+	"@roblox/global/islclosure/param/0": {
+		"documentation": ""
+	},
+	"@roblox/global/islclosure/return/0": {
+		"documentation": ""
+	},
+	"@roblox/global/islclosure": {
+		"documentation": "Returns whether or not `func` is a closure whose source is written in Luau.",
+		"params": [
+			{
+				"name": "func",
+				"documentation": "@roblox/global/islclosure/param/0"
+			}
+		],
+		"returns": ["@roblox/global/islclosure/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/closures#islclosure",
+		"code_sample": ""
+	},
+	"@roblox/global/isexecutorclosure/param/0": {
+		"documentation": ""
+	},
+	"@roblox/global/isexecutorclosure/return/0": {
+		"documentation": ""
+	},
+	"@roblox/global/isexecutorclosure": {
+		"documentation": "Returns whether or not `func` was created by the executor.",
+		"params": [
+			{
+				"name": "func",
+				"documentation": "@roblox/global/isexecutorclosure/param/0"
+			}
+		],
+		"returns": ["@roblox/global/isexecutorclosure/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/closures#isexecutorclosure",
+		"code_sample": ""
+	},
+	"@roblox/global/loadstring/param/0": {
+		"documentation": ""
+	},
+	"@roblox/global/loadstring/param/1": {
+		"documentation": ""
+	},
+	"@roblox/global/loadstring/return/0": {
+		"documentation": ""
+	},
+	"@roblox/global/loadstring": {
+		"documentation": "Generates a chunk from the given source code. The environment of the returned function is the global environment.\n\nIf there are no compilation errors, the chunk is returned by itself; otherwise, it returns `nil` plus the error message.\n\n`chunkname` is used as the chunk name for error messages and debug information.",
+		"params": [
+			{
+				"name": "source",
+				"documentation": "@roblox/global/loadstring/param/0"
+			},
+			{
+				"name": "chunkname",
+				"documentation": "@roblox/global/loadstring/param/1"
+			}
+		],
+		"returns": ["@roblox/global/loadstring/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/closures#loadstring",
+		"code_sample": ""
+	},
+	"@roblox/global/newcclosure/param/0": {
+		"documentation": ""
+	},
+	"@roblox/global/newcclosure/return/0": {
+		"documentation": ""
+	},
+	"@roblox/global/newcclosure": {
+		"documentation": "Returns a C closure that wraps `func`. The result is functionally identical to `func`, but identifies as a C closure.",
+		"params": [
+			{
+				"name": "func",
+				"documentation": "@roblox/global/newcclosure/param/0"
+			}
+		],
+		"returns": ["@roblox/global/newcclosure/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/closures#newcclosure",
+		"code_sample": ""
+	},
+
+	"COMMENT": "############### Console ###############",
+	"COMMENT": "############### Console ###############",
+	"COMMENT": "############### Console ###############",
+	"@roblox/global/rconsoleclear": {
+		"documentation": "Clears the output of the console window.",
+		"params": [],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/console#rconsoleclear",
+		"code_sample": ""
+	},
+	"@roblox/global/rconsolecreate": {
+		"documentation": "Opens the console window. Text previously output to the console will not be cleared.\n\n⚠️  This function is disabled.",
+		"params": [],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/console#rconsolecreate",
+		"code_sample": ""
+	},
+	"@roblox/global/rconsoledestroy": {
+		"documentation": "Clears the output of the console window.",
+		"params": [],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/console#rconsoledestroy",
+		"code_sample": ""
+	},
+	"@roblox/global/rconsoleinput": {
+		"documentation": "Waits for the user to input text into the console window. Returns the result.\n\n⚠️  This function is disabled.",
+		"params": [],
+		"returns": ["@roblox/global/rconsoleinput/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/console#rconsoleinput",
+		"code_sample": ""
+	},
+	"@roblox/global/rconsoleinput/return/0": {
+		"documentation": "The text input by the user."
+	},
+	"@roblox/global/rconsoleprint": {
+		"documentation": "Prints text to the console window. Does not clear existing text or create a new line.",
+		"params": [
+			{
+				"name": "text",
+				"documentation": "@roblox/global/rconsoleprint/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/console#rconsoleprint",
+		"code_sample": ""
+	},
+	"@roblox/global/rconsoleprint/param/0": {
+		"documentation": "The text to print to the console."
+	},
+	"@roblox/global/rconsolewarn": {
+		"documentation": "Prints text as a warning to the console window. Does not clear existing text or create a new line.",
+		"params": [
+			{
+				"name": "text",
+				"documentation": "@roblox/global/rconsolewarn/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/console#rconsolewarn",
+		"code_sample": ""
+	},
+	"@roblox/global/rconsolewarn/param/0": {
+		"documentation": "The text to print as a warning to the console."
+	},
+	"@roblox/global/rconsoleerror": {
+		"documentation": "Prints text as an error to the console window. Does not clear existing text or create a new line.",
+		"params": [
+			{
+				"name": "text",
+				"documentation": "@roblox/global/rconsoleerror/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/console#rconsoleerror",
+		"code_sample": ""
+	},
+	"@roblox/global/rconsoleerror/param/0": {
+		"documentation": "The text to print as an error to the console."
+	},
+	"@roblox/global/rconsolesettitle": {
+		"documentation": "Sets the title of the console window to title.\n\n⚠️  This function is disabled.",
+		"params": [
+			{
+				"name": "title",
+				"documentation": "@roblox/global/rconsolesettitle/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/console#rconsolesettitle",
+		"code_sample": ""
+	},
+	"@roblox/global/rconsolesettitle/param/0": {
+		"documentation": "The new title for the console window."
+	},
+
+	"COMMENT": "############### Crypt ###############",
+	"COMMENT": "############### Crypt ###############",
+	"COMMENT": "############### Crypt ###############",
+	"@roblox/global/crypt": {
+		"documentation": "A library of cryptographic functions.",
+		"keys": {
+			"base64encode": "@roblox/global/crypt.base64encode",
+			"base64decode": "@roblox/global/crypt.base64decode",
+			"encrypt": "@roblox/global/crypt.encrypt",
+			"decrypt": "@roblox/global/crypt.decrypt",
+			"generatebytes": "@roblox/global/crypt.generatebytes",
+			"generatekey": "@roblox/global/crypt.generatekey",
+			"hash": "@roblox/global/crypt.hash"
+		},
+		"learn_more_link": "https://docs.potassium.pro/environment/crypt",
+		"code_sample": ""
+	},
+	"@roblox/global/crypt.base64encode/param/0": {
+		"documentation": "The string of bytes to encode."
+	},
+	"@roblox/global/crypt.base64encode/return/0": {
+		"documentation": "The Base64 encoded string."
+	},
+	"@roblox/global/crypt.base64encode": {
+		"documentation": "Encodes a string of bytes into Base64.",
+		"params": [
+			{
+				"name": "data",
+				"documentation": "@roblox/global/crypt.base64encode/param/0"
+			}
+		],
+		"returns": ["@roblox/global/crypt.base64encode/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/crypt#base64encode",
+		"code_sample": ""
+	},
+	"@roblox/global/crypt.base64decode/param/0": {
+		"documentation": "The Base64 string to decode."
+	},
+	"@roblox/global/crypt.base64decode/return/0": {
+		"documentation": "The decoded string of bytes."
+	},
+	"@roblox/global/crypt.base64decode": {
+		"documentation": "Decodes a Base64 string to a string of bytes.",
+		"params": [
+			{
+				"name": "data",
+				"documentation": "@roblox/global/crypt.base64decode/param/0"
+			}
+		],
+		"returns": ["@roblox/global/crypt.base64decode/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/crypt#base64decode",
+		"code_sample": ""
+	},
+	"@roblox/global/crypt.encrypt/param/0": {
+		"documentation": "The unencoded string to encrypt."
+	},
+	"@roblox/global/crypt.encrypt/param/1": {
+		"documentation": "The encryption key."
+	},
+	"@roblox/global/crypt.encrypt/param/2": {
+		"documentation": "The AES IV. If not provided, a random one will be generated."
+	},
+	"@roblox/global/crypt.encrypt/param/3": {
+		"documentation": "The cipher mode. Options are 'CBC', 'ECB', 'CTR', 'CFB', 'OFB', and 'GCM'. Default is 'CBC'."
+	},
+	"@roblox/global/crypt.encrypt/return/0": {
+		"documentation": "The base64 encoded and encrypted string."
+	},
+	"@roblox/global/crypt.encrypt/return/1": {
+		"documentation": "The base64 encoded IV, if one was generated."
+	},
+	"@roblox/global/crypt.encrypt": {
+		"documentation": "Encrypts an unencoded string using AES encryption. Returns the base64 encoded and encrypted string, and the IV.\n\nIf an AES IV is not provided, a random one will be generated for you, and returned as a 2nd base64 encoded string.\n\nThe cipher modes are 'CBC', 'ECB', 'CTR', 'CFB', 'OFB', and 'GCM'. The default is 'CBC'.",
+		"params": [
+			{
+				"name": "data",
+				"documentation": "@roblox/global/crypt.encrypt/param/0"
+			},
+			{
+				"name": "key",
+				"documentation": "@roblox/global/crypt.encrypt/param/1"
+			},
+			{
+				"name": "iv",
+				"documentation": "@roblox/global/crypt.encrypt/param/2"
+			},
+			{
+				"name": "mode",
+				"documentation": "@roblox/global/crypt.encrypt/param/3"
+			}
+		],
+		"returns": ["@roblox/global/crypt.encrypt/return/0", "@roblox/global/crypt.encrypt/return/1"],
+		"learn_more_link": "https://docs.potassium.pro/environment/crypt#encrypt",
+		"code_sample": ""
+	},
+	"@roblox/global/crypt.decrypt/param/0": {
+		"documentation": "The base64 encoded and encrypted content to decrypt."
+	},
+	"@roblox/global/crypt.decrypt/param/1": {
+		"documentation": "The encryption key."
+	},
+	"@roblox/global/crypt.decrypt/param/2": {
+		"documentation": "The AES IV."
+	},
+	"@roblox/global/crypt.decrypt/param/3": {
+		"documentation": "The cipher mode. Options are 'CBC', 'ECB', 'CTR', 'CFB', 'OFB', and 'GCM'."
+	},
+	"@roblox/global/crypt.decrypt/return/0": {
+		"documentation": "The decrypted raw string."
+	},
+	"@roblox/global/crypt.decrypt": {
+		"documentation": "Decrypts the base64 encoded and encrypted content. Returns the raw string.\n\nThe cipher modes are 'CBC', 'ECB', 'CTR', 'CFB', 'OFB', and 'GCM'.",
+		"params": [
+			{
+				"name": "data",
+				"documentation": "@roblox/global/crypt.decrypt/param/0"
+			},
+			{
+				"name": "key",
+				"documentation": "@roblox/global/crypt.decrypt/param/1"
+			},
+			{
+				"name": "iv",
+				"documentation": "@roblox/global/crypt.decrypt/param/2"
+			},
+			{
+				"name": "mode",
+				"documentation": "@roblox/global/crypt.decrypt/param/3"
+			}
+		],
+		"returns": ["@roblox/global/crypt.decrypt/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/crypt#decrypt",
+		"code_sample": ""
+	},
+	"@roblox/global/crypt.generatebytes/param/0": {
+		"documentation": "The size of the random sequence to generate."
+	},
+	"@roblox/global/crypt.generatebytes/return/0": {
+		"documentation": "The base64 encoded random sequence of bytes."
+	},
+	"@roblox/global/crypt.generatebytes": {
+		"documentation": "Generates a random sequence of bytes of the given size. Returns the sequence as a base64 encoded string.",
+		"params": [
+			{
+				"name": "size",
+				"documentation": "@roblox/global/crypt.generatebytes/param/0"
+			}
+		],
+		"returns": ["@roblox/global/crypt.generatebytes/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/crypt#generatebytes",
+		"code_sample": ""
+	},
+	"@roblox/global/crypt.generatekey/return/0": {
+		"documentation": "The base64 encoded 256-bit key."
+	},
+	"@roblox/global/crypt.generatekey": {
+		"documentation": "Generates a base64 encoded 256-bit key. The result can be used as the second parameter for the crypt.encrypt and crypt.decrypt functions.",
+		"params": [],
+		"returns": ["@roblox/global/crypt.generatekey/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/crypt#generatekey",
+		"code_sample": ""
+	},
+	"@roblox/global/crypt.hash/param/0": {
+		"documentation": "The data to hash."
+	},
+	"@roblox/global/crypt.hash/param/1": {
+		"documentation": "The hashing algorithm to use. Some algorithms include 'sha1', 'sha384', 'sha512', 'md5', 'sha256', 'sha3-224', 'sha3-256', and 'sha3-512'."
+	},
+	"@roblox/global/crypt.hash/return/0": {
+		"documentation": "The result of hashing the data."
+	},
+	"@roblox/global/crypt.hash": {
+		"documentation": "Returns the result of hashing the data using the given algorithm.\n\nSome algorithms include 'sha1', 'sha384', 'sha512', 'md5', 'sha256', 'sha3-224', 'sha3-256', and 'sha3-512'.",
+		"params": [
+			{
+				"name": "data",
+				"documentation": "@roblox/global/crypt.hash/param/0"
+			},
+			{
+				"name": "algo",
+				"documentation": "@roblox/global/crypt.hash/param/1"
+			}
+		],
+		"returns": ["@roblox/global/crypt.hash/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/crypt#hash",
+		"code_sample": ""
+	},
+
+	"COMMENT": "############### Debug ###############",
+	"COMMENT": "############### Debug ###############",
+	"COMMENT": "############### Debug ###############",
+	"COMMENT": "TODO: add debug differently than others because it's already in roblox and it breaks",
+
+	"COMMENT": "############### Drawing ###############",
+	"COMMENT": "############### Drawing ###############",
+	"COMMENT": "############### Drawing ###############",
+	"@roblox/global/Drawing": {
+		"documentation": "A library for creating and manipulating 2D drawing objects.",
+		"keys": {
+			"new": "@roblox/global/Drawing.new",
+			"Fonts": "@roblox/global/Drawing.Fonts"
+		},
+		"learn_more_link": "https://docs.potassium.pro/environment/drawing",
+		"code_sample": ""
+	},
+	"@roblox/global/Drawing.new/param/0": {
+		"documentation": "The type of drawing object to create. Valid types are 'Line', 'Text', 'Image', 'Circle', 'Square', 'Quad', and 'Triangle'."
+	},
+	"@roblox/global/Drawing.new/return/0": {
+		"documentation": "The newly created drawing object."
+	},
+	"@roblox/global/Drawing.new": {
+		"documentation": "Create a new drawing object of the specified type.",
+		"params": [
+			{
+				"name": "type",
+				"documentation": "@roblox/global/Drawing.new/param/0"
+			}
+		],
+		"returns": ["@roblox/global/Drawing.new/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/drawing#new",
+		"code_sample": ""
+	},
+	"@roblox/global/Drawing.Fonts": {
+		"documentation": "A table of font constants for use with Text drawing objects.",
+		"keys": {
+			"UI": "@roblox/global/Drawing.Fonts.UI",
+			"System": "@roblox/global/Drawing.Fonts.System",
+			"Plex": "@roblox/global/Drawing.Fonts.Plex",
+			"Monospace": "@roblox/global/Drawing.Fonts.Monospace"
+		},
+		"learn_more_link": "https://docs.potassium.pro/environment/drawing#fonts",
+		"code_sample": ""
+	},
+	"@roblox/global/Drawing.Fonts.UI": {
+		"documentation": "UI font (value: 0)."
+	},
+	"@roblox/global/Drawing.Fonts.System": {
+		"documentation": "System font (value: 1)."
+	},
+	"@roblox/global/Drawing.Fonts.Plex": {
+		"documentation": "Plex font (value: 2)."
+	},
+	"@roblox/global/Drawing.Fonts.Monospace": {
+		"documentation": "Monospace font (value: 3)."
+	},
+	"@roblox/global/cleardrawcache": {
+		"documentation": "Destroys every drawing object in the cache. Invalidates references to the drawing objects.",
+		"params": [],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/drawing#cleardrawcache",
+		"code_sample": ""
+	},
+	"@roblox/global/getrenderproperty/param/0": {
+		"documentation": "The drawing object to get the property from."
+	},
+	"@roblox/global/getrenderproperty/param/1": {
+		"documentation": "The name of the property to get."
+	},
+	"@roblox/global/getrenderproperty/return/0": {
+		"documentation": "The value of the property."
+	},
+	"@roblox/global/getrenderproperty": {
+		"documentation": "Gets the value of a property of a drawing. Functionally identical to drawing[property].",
+		"params": [
+			{
+				"name": "drawing",
+				"documentation": "@roblox/global/getrenderproperty/param/0"
+			},
+			{
+				"name": "property",
+				"documentation": "@roblox/global/getrenderproperty/param/1"
+			}
+		],
+		"returns": ["@roblox/global/getrenderproperty/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/drawing#getrenderproperty",
+		"code_sample": ""
+	},
+	"@roblox/global/isrenderobj/param/0": {
+		"documentation": "The object to check."
+	},
+	"@roblox/global/isrenderobj/return/0": {
+		"documentation": "Whether the object is a valid Drawing object."
+	},
+	"@roblox/global/isrenderobj": {
+		"documentation": "Returns whether the given object is a valid Drawing.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/isrenderobj/param/0"
+			}
+		],
+		"returns": ["@roblox/global/isrenderobj/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/drawing#isrenderobj",
+		"code_sample": ""
+	},
+	"@roblox/global/setrenderproperty/param/0": {
+		"documentation": "The drawing object to set the property on."
+	},
+	"@roblox/global/setrenderproperty/param/1": {
+		"documentation": "The name of the property to set."
+	},
+	"@roblox/global/setrenderproperty/param/2": {
+		"documentation": "The new value for the property."
+	},
+	"@roblox/global/setrenderproperty": {
+		"documentation": "Sets the value of a property of a drawing. Functionally identical to drawing[property] = value.",
+		"params": [
+			{
+				"name": "drawing",
+				"documentation": "@roblox/global/setrenderproperty/param/0"
+			},
+			{
+				"name": "property",
+				"documentation": "@roblox/global/setrenderproperty/param/1"
+			},
+			{
+				"name": "value",
+				"documentation": "@roblox/global/setrenderproperty/param/2"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/drawing#setrenderproperty",
+		"code_sample": ""
+	},
+
+	"COMMENT": "############### File System ###############",
+	"COMMENT": "############### File System ###############",
+	"COMMENT": "############### File System ###############",
+	"@roblox/global/readfile/param/0": {
+		"documentation": "The path to the file to read."
+	},
+	"@roblox/global/readfile/return/0": {
+		"documentation": "The contents of the file."
+	},
+	"@roblox/global/readfile": {
+		"documentation": "Returns the contents of the file located at path.",
+		"params": [
+			{
+				"name": "path",
+				"documentation": "@roblox/global/readfile/param/0"
+			}
+		],
+		"returns": ["@roblox/global/readfile/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/filesystem#readfile",
+		"code_sample": ""
+	},
+	"@roblox/global/listfiles/param/0": {
+		"documentation": "The path to the folder to list files from."
+	},
+	"@roblox/global/listfiles/return/0": {
+		"documentation": "A list of files and folders in the specified folder."
+	},
+	"@roblox/global/listfiles": {
+		"documentation": "Returns a list of files and folders in the folder located at path. The returned list contains whole paths.",
+		"params": [
+			{
+				"name": "path",
+				"documentation": "@roblox/global/listfiles/param/0"
+			}
+		],
+		"returns": ["@roblox/global/listfiles/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/filesystem#listfiles",
+		"code_sample": ""
+	},
+	"@roblox/global/writefile/param/0": {
+		"documentation": "The path to the file to write to."
+	},
+	"@roblox/global/writefile/param/1": {
+		"documentation": "The data to write to the file."
+	},
+	"@roblox/global/writefile": {
+		"documentation": "Writes data to the file located at path if it is not a folder.",
+		"params": [
+			{
+				"name": "path",
+				"documentation": "@roblox/global/writefile/param/0"
+			},
+			{
+				"name": "data",
+				"documentation": "@roblox/global/writefile/param/1"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/filesystem#writefile",
+		"code_sample": ""
+	},
+	"@roblox/global/makefolder/param/0": {
+		"documentation": "The path to the folder to create."
+	},
+	"@roblox/global/makefolder": {
+		"documentation": "Creates a folder at path if it does not already exist.",
+		"params": [
+			{
+				"name": "path",
+				"documentation": "@roblox/global/makefolder/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/filesystem#makefolder",
+		"code_sample": ""
+	},
+	"@roblox/global/appendfile/param/0": {
+		"documentation": "The path to the file to append to."
+	},
+	"@roblox/global/appendfile/param/1": {
+		"documentation": "The data to append to the file."
+	},
+	"@roblox/global/appendfile": {
+		"documentation": "Appends data to the end of the file located at path. Creates the file if it does not exist.",
+		"params": [
+			{
+				"name": "path",
+				"documentation": "@roblox/global/appendfile/param/0"
+			},
+			{
+				"name": "data",
+				"documentation": "@roblox/global/appendfile/param/1"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/filesystem#appendfile",
+		"code_sample": ""
+	},
+	"@roblox/global/isfile/param/0": {
+		"documentation": "The path to check."
+	},
+	"@roblox/global/isfile/return/0": {
+		"documentation": "Whether the path points to a file."
+	},
+	"@roblox/global/isfile": {
+		"documentation": "Returns whether or not path points to a file.",
+		"params": [
+			{
+				"name": "path",
+				"documentation": "@roblox/global/isfile/param/0"
+			}
+		],
+		"returns": ["@roblox/global/isfile/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/filesystem#isfile",
+		"code_sample": ""
+	},
+	"@roblox/global/isfolder/param/0": {
+		"documentation": "The path to check."
+	},
+	"@roblox/global/isfolder/return/0": {
+		"documentation": "Whether the path points to a folder."
+	},
+	"@roblox/global/isfolder": {
+		"documentation": "Returns whether or not path points to a folder.",
+		"params": [
+			{
+				"name": "path",
+				"documentation": "@roblox/global/isfolder/param/0"
+			}
+		],
+		"returns": ["@roblox/global/isfolder/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/filesystem#isfolder",
+		"code_sample": ""
+	},
+	"@roblox/global/delfile/param/0": {
+		"documentation": "The path to the file to delete."
+	},
+	"@roblox/global/delfile": {
+		"documentation": "Removes the file located at path.",
+		"params": [
+			{
+				"name": "path",
+				"documentation": "@roblox/global/delfile/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/filesystem#delfile",
+		"code_sample": ""
+	},
+	"@roblox/global/delfolder/param/0": {
+		"documentation": "The path to the folder to delete."
+	},
+	"@roblox/global/delfolder": {
+		"documentation": "Removes the folder located at path.",
+		"params": [
+			{
+				"name": "path",
+				"documentation": "@roblox/global/delfolder/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/filesystem#delfolder",
+		"code_sample": ""
+	},
+	"@roblox/global/loadfile/param/0": {
+		"documentation": "The path to the file to load."
+	},
+	"@roblox/global/loadfile/param/1": {
+		"documentation": "The name to use for the chunk in error messages and debug information."
+	},
+	"@roblox/global/loadfile/return/0": {
+		"documentation": "The loaded chunk as a function, or nil if there was an error."
+	},
+	"@roblox/global/loadfile/return/1": {
+		"documentation": "The error message if there was an error."
+	},
+	"@roblox/global/loadfile": {
+		"documentation": "Generates a chunk from the file located at path. The environment of the returned function is the global environment.\n\nIf there are no compilation errors, the chunk is returned by itself; otherwise, it returns nil plus the error message.\n\nchunkname is used as the chunk name for error messages and debug information.",
+		"params": [
+			{
+				"name": "path",
+				"documentation": "@roblox/global/loadfile/param/0"
+			},
+			{
+				"name": "chunkname",
+				"documentation": "@roblox/global/loadfile/param/1"
+			}
+		],
+		"returns": ["@roblox/global/loadfile/return/0", "@roblox/global/loadfile/return/1"],
+		"learn_more_link": "https://docs.potassium.pro/environment/filesystem#loadfile",
+		"code_sample": ""
+	},
+	"@roblox/global/dofile/param/0": {
+		"documentation": "The path to the file to execute."
+	},
+	"@roblox/global/dofile": {
+		"documentation": "Attempts to load the file located at path and execute it on a new thread.",
+		"params": [
+			{
+				"name": "path",
+				"documentation": "@roblox/global/dofile/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/filesystem#dofile",
+		"code_sample": ""
+	},
+
+	"COMMENT": "############### Input ###############",
+	"COMMENT": "############### Input ###############",
+	"COMMENT": "############### Input ###############",
+	"@roblox/global/isrbxactive": {
+		"documentation": "Returns whether the game's window is in focus. Must be true for other input functions to work.",
+		"params": [],
+		"returns": [],
+		"learn_more_link": "",
+		"code_sample": ""
+	},
+	"@roblox/global/mouse1click": {
+		"documentation": "Dispatches a left mouse button click.",
+		"params": [],
+		"returns": [],
+		"learn_more_link": "",
+		"code_sample": ""
+	},
+	"@roblox/global/mouse1press": {
+		"documentation": "Dispatches a left mouse button press.",
+		"params": [],
+		"returns": [],
+		"learn_more_link": "",
+		"code_sample": ""
+	},
+	"@roblox/global/mouse1release": {
+		"documentation": "Dispatches a left mouse button release.",
+		"params": [],
+		"returns": [],
+		"learn_more_link": "",
+		"code_sample": ""
+	},
+	"@roblox/global/mouse2click": {
+		"documentation": "Dispatches a right mouse button click.",
+		"params": [],
+		"returns": [],
+		"learn_more_link": "",
+		"code_sample": ""
+	},
+	"@roblox/global/mouse2press": {
+		"documentation": "Dispatches a right mouse button press.",
+		"params": [],
+		"returns": [],
+		"learn_more_link": "",
+		"code_sample": ""
+	},
+	"@roblox/global/mouse2release": {
+		"documentation": "Dispatches a right mouse button release.",
+		"params": [],
+		"returns": [],
+		"learn_more_link": "",
+		"code_sample": ""
+	},
+	"@roblox/global/mousemoveabs": {
+		"documentation": "Moves the mouse cursor to the specified absolute position.",
+		"params": [
+			{
+				"name": "x",
+				"documentation": ""
+			},
+			{
+				"name": "y",
+				"documentation": ""
+			}
+		],
+		"returns": [],
+		"learn_more_link": "",
+		"code_sample": ""
+	},
+	"@roblox/global/mousemoverel": {
+		"documentation": "Adjusts the mouse cursor by the specified relative amount.",
+		"params": [
+			{
+				"name": "x",
+				"documentation": "a"
+			},
+			{
+				"name": "y",
+				"documentation": "b"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "",
+		"code_sample": ""
+	},
+	"@roblox/global/mousescroll": {
+		"documentation": "Dispatches a mouse scroll by the specified number of pixels.",
+		"params": [
+			{
+				"name": "pixels",
+				"documentation": ""
+			}
+		],
+		"returns": [],
+		"learn_more_link": "",
+		"code_sample": ""
+	},
+
+	"COMMENT": "############### Instance ###############",
+	"COMMENT": "############### Instance ###############",
+	"COMMENT": "############### Instance ###############",
+	"@roblox/global/fireclickdetector/param/0": {
+		"documentation": "The ClickDetector to fire."
+	},
+	"@roblox/global/fireclickdetector/param/1": {
+		"documentation": "The distance from the player to the ClickDetector. Defaults to zero when absent."
+	},
+	"@roblox/global/fireclickdetector": {
+		"documentation": "Dispatches a click or hover event to the given ClickDetector. When absent, distance defaults to zero.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/fireclickdetector/param/0"
+			},
+			{
+				"name": "distance",
+				"documentation": "@roblox/global/fireclickdetector/param/1"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#fireclickdetector",
+		"code_sample": "local clickDetector = workspace.Door.Button.ClickDetector\nfireclickdetector(clickDetector, 10 + math.random())"
+	},
+	"@roblox/global/firetouchinterest/param/0": {
+		"documentation": "The instance with the TouchTransmitter to fire."
+	},
+	"@roblox/global/firetouchinterest/param/1": {
+		"documentation": "The part that is touching the instance."
+	},
+	"@roblox/global/firetouchinterest/param/2": {
+		"documentation": "Whether the touch is beginning (true) or ending (false)."
+	},
+	"@roblox/global/firetouchinterest": {
+		"documentation": "Simulates a touch event between two parts.",
+		"params": [
+			{
+				"name": "instance",
+				"documentation": "@roblox/global/firetouchinterest/param/0"
+			},
+			{
+				"name": "touchingPart",
+				"documentation": "@roblox/global/firetouchinterest/param/1"
+			},
+			{
+				"name": "isTouching",
+				"documentation": "@roblox/global/firetouchinterest/param/2"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#firetouchinterest",
+		"code_sample": "local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart\nfiretouchinterest(workspace.TouchPart, rootPart, true)\nfiretouchinterest(workspace.TouchPart, rootPart, false)"
+	},
+	"@roblox/global/isnetworkowner/param/0": {
+		"documentation": "The part to check ownership of."
+	},
+	"@roblox/global/isnetworkowner/return/0": {
+		"documentation": "Whether the part is owned by the player."
+	},
+	"@roblox/global/isnetworkowner": {
+		"documentation": "Returns true if the Part is owned by the player.",
+		"params": [
+			{
+				"name": "part",
+				"documentation": "@roblox/global/isnetworkowner/param/0"
+			}
+		],
+		"returns": ["@roblox/global/isnetworkowner/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#isnetworkowner",
+		"code_sample": ""
+	},
+	"@roblox/global/getcallbackvalue/param/0": {
+		"documentation": "The instance to get the callback from."
+	},
+	"@roblox/global/getcallbackvalue/param/1": {
+		"documentation": "The name of the callback property."
+	},
+	"@roblox/global/getcallbackvalue/return/0": {
+		"documentation": "The function assigned to the callback property, or nil if none is assigned."
+	},
+	"@roblox/global/getcallbackvalue": {
+		"documentation": "Returns the function assigned to a callback property of object, which cannot be indexed normally.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/getcallbackvalue/param/0"
+			},
+			{
+				"name": "property",
+				"documentation": "@roblox/global/getcallbackvalue/param/1"
+			}
+		],
+		"returns": ["@roblox/global/getcallbackvalue/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#getcallbackvalue",
+		"code_sample": ""
+	},
+	"@roblox/global/fireproximityprompt/param/0": {
+		"documentation": "The ProximityPrompt to fire."
+	},
+	"@roblox/global/fireproximityprompt": {
+		"documentation": "Fires the trigger of prompt.",
+		"params": [
+			{
+				"name": "prompt",
+				"documentation": "@roblox/global/fireproximityprompt/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#fireproximityprompt",
+		"code_sample": ""
+	},
+	"@roblox/global/getconnections/param/0": {
+		"documentation": "The signal to get connections from."
+	},
+	"@roblox/global/getconnections/return/0": {
+		"documentation": "A list of Connection objects for the functions connected to the signal."
+	},
+	"@roblox/global/getconnections": {
+		"documentation": "Creates a list of Connection objects for the functions connected to signal.",
+		"params": [
+			{
+				"name": "signal",
+				"documentation": "@roblox/global/getconnections/param/0"
+			}
+		],
+		"returns": ["@roblox/global/getconnections/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#getconnections",
+		"code_sample": ""
+	},
+	"@roblox/global/getconnection/param/0": {
+		"documentation": "The signal to get a connection from."
+	},
+	"@roblox/global/getconnection/param/1": {
+		"documentation": "The index of the connection to get."
+	},
+	"@roblox/global/getconnection/return/0": {
+		"documentation": "The Connection object at the specified index."
+	},
+	"@roblox/global/getconnection": {
+		"documentation": "Returns a Connection object for index.",
+		"params": [
+			{
+				"name": "signal",
+				"documentation": "@roblox/global/getconnection/param/0"
+			},
+			{
+				"name": "index",
+				"documentation": "@roblox/global/getconnection/param/1"
+			}
+		],
+		"returns": ["@roblox/global/getconnection/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#getconnection",
+		"code_sample": ""
+	},
+	"@roblox/global/firesignal/param/0": {
+		"documentation": "The signal to fire."
+	},
+	"@roblox/global/firesignal": {
+		"documentation": "Fires all Lua connections of signal.",
+		"params": [
+			{
+				"name": "signal",
+				"documentation": "@roblox/global/firesignal/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#firesignal",
+		"code_sample": ""
+	},
+	"@roblox/global/getcustomasset/param/0": {
+		"documentation": "The path to the asset file."
+	},
+	"@roblox/global/getcustomasset/return/0": {
+		"documentation": "A rbxasset:// content id for the asset."
+	},
+	"@roblox/global/getcustomasset": {
+		"documentation": "Returns a rbxasset:// content id for the asset located at path, allowing you to use unmoderated assets. Internally, files are copied to the game's content directory.",
+		"params": [
+			{
+				"name": "path",
+				"documentation": "@roblox/global/getcustomasset/param/0"
+			}
+		],
+		"returns": ["@roblox/global/getcustomasset/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#getcustomasset",
+		"code_sample": ""
+	},
+	"@roblox/global/gethiddenproperty/param/0": {
+		"documentation": "The instance to get the property from."
+	},
+	"@roblox/global/gethiddenproperty/param/1": {
+		"documentation": "The name of the property to get."
+	},
+	"@roblox/global/gethiddenproperty/return/0": {
+		"documentation": "The value of the property."
+	},
+	"@roblox/global/gethiddenproperty/return/1": {
+		"documentation": "Whether the property is hidden."
+	},
+	"@roblox/global/gethiddenproperty": {
+		"documentation": "Returns the value of a hidden property of object, which cannot be indexed normally.\n\nIf the property is hidden, the second return value will be true. Otherwise, it will be false.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/gethiddenproperty/param/0"
+			},
+			{
+				"name": "property",
+				"documentation": "@roblox/global/gethiddenproperty/param/1"
+			}
+		],
+		"returns": ["@roblox/global/gethiddenproperty/return/0", "@roblox/global/gethiddenproperty/return/1"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#gethiddenproperty",
+		"code_sample": "local fire = Instance.new(\"Fire\")\nprint(gethiddenproperty(fire, \"size_xml\")) --> 5, true\nprint(gethiddenproperty(fire, \"Size\")) --> 5, false"
+	},
+	"@roblox/global/setsimulationradius/param/0": {
+		"documentation": "The new simulation radius."
+	},
+	"@roblox/global/setsimulationradius/param/1": {
+		"documentation": "The new maximum simulation radius."
+	},
+	"@roblox/global/setsimulationradius": {
+		"documentation": "Sets the player's simulationRadius. If maxSimulationRadius is specified, it will set that as well.",
+		"params": [
+			{
+				"name": "simulationRadius",
+				"documentation": "@roblox/global/setsimulationradius/param/0"
+			},
+			{
+				"name": "maxSimulationRadius",
+				"documentation": "@roblox/global/setsimulationradius/param/1"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#setsimulationradius",
+		"code_sample": ""
+	},
+	"@roblox/global/gethui/return/0": {
+		"documentation": "A hidden GUI container."
+	},
+	"@roblox/global/gethui": {
+		"documentation": "Returns a hidden GUI container. Should be used as an alternative to CoreGui and PlayerGui.\n\nGUI objects parented to this container will be protected from common detection methods.",
+		"params": [],
+		"returns": ["@roblox/global/gethui/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#gethui",
+		"code_sample": ""
+	},
+	"@roblox/global/getinstances/return/0": {
+		"documentation": "A list of every Instance referenced on the client."
+	},
+	"@roblox/global/getinstances": {
+		"documentation": "Returns a list of every Instance referenced on the client.",
+		"params": [],
+		"returns": ["@roblox/global/getinstances/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#getinstances",
+		"code_sample": ""
+	},
+	"@roblox/global/getnilinstances/return/0": {
+		"documentation": "A list of Instances that are not descendants of a service provider."
+	},
+	"@roblox/global/getnilinstances": {
+		"documentation": "Like getinstances, but only includes Instances that are not descendants of a service provider.",
+		"params": [],
+		"returns": ["@roblox/global/getnilinstances/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#getnilinstances",
+		"code_sample": ""
+	},
+	"@roblox/global/isscriptable/param/0": {
+		"documentation": "The instance to check."
+	},
+	"@roblox/global/isscriptable/param/1": {
+		"documentation": "The name of the property to check."
+	},
+	"@roblox/global/isscriptable/return/0": {
+		"documentation": "Whether the property is scriptable, or nil if the property does not exist."
+	},
+	"@roblox/global/isscriptable": {
+		"documentation": "Returns whether the given property is scriptable (does not have the notscriptable tag).\n\nIf true, the property is scriptable and can be indexed normally. If nil, the property does not exist.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/isscriptable/param/0"
+			},
+			{
+				"name": "property",
+				"documentation": "@roblox/global/isscriptable/param/1"
+			}
+		],
+		"returns": ["@roblox/global/isscriptable/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#isscriptable",
+		"code_sample": ""
+	},
+	"@roblox/global/sethiddenproperty/param/0": {
+		"documentation": "The instance to set the property on."
+	},
+	"@roblox/global/sethiddenproperty/param/1": {
+		"documentation": "The name of the property to set."
+	},
+	"@roblox/global/sethiddenproperty/param/2": {
+		"documentation": "The new value for the property."
+	},
+	"@roblox/global/sethiddenproperty/return/0": {
+		"documentation": "Whether the property was hidden."
+	},
+	"@roblox/global/sethiddenproperty": {
+		"documentation": "Sets the value of a hidden property of object, which cannot be set normally. Returns whether the property was hidden.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/sethiddenproperty/param/0"
+			},
+			{
+				"name": "property",
+				"documentation": "@roblox/global/sethiddenproperty/param/1"
+			},
+			{
+				"name": "value",
+				"documentation": "@roblox/global/sethiddenproperty/param/2"
+			}
+		],
+		"returns": ["@roblox/global/sethiddenproperty/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#sethiddenproperty",
+		"code_sample": "local fire = Instance.new(\"Fire\")\nprint(sethiddenproperty(fire, \"Size\", 5)) --> false (not hidden)\nprint(sethiddenproperty(fire, \"size_xml\", 15)) --> true (hidden)\nprint(gethiddenproperty(fire, \"size_xml\")) --> 15, true (hidden)"
+	},
+	"@roblox/global/setrbxclipboard/param/0": {
+		"documentation": "The rbxm or rbxmx model data to set to the clipboard."
+	},
+	"@roblox/global/setrbxclipboard/return/0": {
+		"documentation": "Whether the operation was successful."
+	},
+	"@roblox/global/setrbxclipboard": {
+		"documentation": "Sets the Studio client's clipboard to the given rbxm or rbxmx model data. This allows data from the game to be copied into a Studio client.",
+		"params": [
+			{
+				"name": "data",
+				"documentation": "@roblox/global/setrbxclipboard/param/0"
+			}
+		],
+		"returns": ["@roblox/global/setrbxclipboard/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#setrbxclipboard",
+		"code_sample": "local data = readfile(\"model.rbxm\")\nsetrbxclipboard(data) -- Can be pasted into Studio"
+	},
+	"@roblox/global/setscriptable/param/0": {
+		"documentation": "The instance to modify."
+	},
+	"@roblox/global/setscriptable/param/1": {
+		"documentation": "The name of the property to modify."
+	},
+	"@roblox/global/setscriptable/param/2": {
+		"documentation": "Whether the property should be scriptable."
+	},
+	"@roblox/global/setscriptable/return/0": {
+		"documentation": "Whether the property was scriptable prior to changing it."
+	},
+	"@roblox/global/setscriptable": {
+		"documentation": "Set whether the given property is scriptable. Returns whether the property was scriptable prior to changing it.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/setscriptable/param/0"
+			},
+			{
+				"name": "property",
+				"documentation": "@roblox/global/setscriptable/param/1"
+			},
+			{
+				"name": "value",
+				"documentation": "@roblox/global/setscriptable/param/2"
+			}
+		],
+		"returns": ["@roblox/global/setscriptable/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#setscriptable",
+		"code_sample": ""
+	},
+	"@roblox/global/getrendersteppedlist/return/0": {
+		"documentation": "A list of callbacks bound with RunService.BindToRenderStep."
+	},
+	"@roblox/global/getrendersteppedlist": {
+		"documentation": "Returns all callbacks bound with RunService.BindToRenderStep.",
+		"params": [],
+		"returns": ["@roblox/global/getrendersteppedlist/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#getrendersteppedlist",
+		"code_sample": ""
+	},
+	"@roblox/global/replicatesignal/param/0": {
+		"documentation": "The signal to replicate."
+	},
+	"@roblox/global/replicatesignal": {
+		"documentation": "Replicates signal on the server.\n\nIf signal has one or multiple arguments, they must be provided in the call.",
+		"params": [
+			{
+				"name": "signal",
+				"documentation": "@roblox/global/replicatesignal/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/instance#replicatesignal",
+		"code_sample": "replicatesignal(game.Players.LocalPlayer.Kill) --> Kills you\n\nlocal sword = game.Players.LocalPlayer.Character.ClassicSword\nreplicatesignal(sword.Activated) --> Swings the sword"
+	},
+
+	"COMMENT": "############### Metatable ###############",
+	"COMMENT": "############### Metatable ###############",
+	"COMMENT": "############### Metatable ###############",
+	"@roblox/global/getrawmetatable/param/0": {
+		"documentation": "The table to get the metatable from."
+	},
+	"@roblox/global/getrawmetatable/return/0": {
+		"documentation": "The metatable of the object."
+	},
+	"@roblox/global/getrawmetatable": {
+		"documentation": "Returns the metatable of object, where the __metatable field would normally lock the metatable.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/getrawmetatable/param/0"
+			}
+		],
+		"returns": ["@roblox/global/getrawmetatable/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/metatable#getrawmetatable",
+		"code_sample": ""
+	},
+	"@roblox/global/hookmetamethod/param/0": {
+		"documentation": "The table with the metatable to hook."
+	},
+	"@roblox/global/hookmetamethod/param/1": {
+		"documentation": "The name of the metamethod to hook."
+	},
+	"@roblox/global/hookmetamethod/param/2": {
+		"documentation": "The function to replace the metamethod with."
+	},
+	"@roblox/global/hookmetamethod/return/0": {
+		"documentation": "A function that can be used to access the original definition of the metamethod."
+	},
+	"@roblox/global/hookmetamethod": {
+		"documentation": "Replaces func with hook internally, where hook will be invoked in place of func when called.\n\nReturns a new function that can be used to access the original definition of func.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/hookmetamethod/param/0"
+			},
+			{
+				"name": "method",
+				"documentation": "@roblox/global/hookmetamethod/param/1"
+			},
+			{
+				"name": "hook",
+				"documentation": "@roblox/global/hookmetamethod/param/2"
+			}
+		],
+		"returns": ["@roblox/global/hookmetamethod/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/metatable#hookmetamethod",
+		"code_sample": ""
+	},
+	"@roblox/global/getnamecallmethod/return/0": {
+		"documentation": "The name of the method that invoked the __namecall metamethod."
+	},
+	"@roblox/global/getnamecallmethod": {
+		"documentation": "Returns the name of the method that invoked the __namecall metamethod.",
+		"params": [],
+		"returns": ["@roblox/global/getnamecallmethod/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/metatable#getnamecallmethod",
+		"code_sample": ""
+	},
+	"@roblox/global/setnamecallmethod/param/0": {
+		"documentation": "The new method name to set."
+	},
+	"@roblox/global/setnamecallmethod": {
+		"documentation": "Changes the name of the method that invoked __namecall metamethod.",
+		"params": [
+			{
+				"name": "method",
+				"documentation": "@roblox/global/setnamecallmethod/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/metatable#setnamecallmethod",
+		"code_sample": ""
+	},
+	"@roblox/global/isreadonly/param/0": {
+		"documentation": "The table to check."
+	},
+	"@roblox/global/isreadonly/return/0": {
+		"documentation": "Whether the object is read-only or not."
+	},
+	"@roblox/global/isreadonly": {
+		"documentation": "Returns whether object is read-only or not.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/isreadonly/param/0"
+			}
+		],
+		"returns": ["@roblox/global/isreadonly/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/metatable#isreadonly",
+		"code_sample": ""
+	},
+	"@roblox/global/setrawmetatable/param/0": {
+		"documentation": "The table to set the metatable on."
+	},
+	"@roblox/global/setrawmetatable/param/1": {
+		"documentation": "The new metatable."
+	},
+	"@roblox/global/setrawmetatable": {
+		"documentation": "Sets the metatable of object to metatable, where the __metatable field would normally lock the metatable.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/setrawmetatable/param/0"
+			},
+			{
+				"name": "metatable",
+				"documentation": "@roblox/global/setrawmetatable/param/1"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/metatable#setrawmetatable",
+		"code_sample": ""
+	},
+	"@roblox/global/setreadonly/param/0": {
+		"documentation": "The table to modify."
+	},
+	"@roblox/global/setreadonly/param/1": {
+		"documentation": "Whether the object should be read-only."
+	},
+	"@roblox/global/setreadonly": {
+		"documentation": "Sets whether object is read-only or not.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/setreadonly/param/0"
+			},
+			{
+				"name": "readonly",
+				"documentation": "@roblox/global/setreadonly/param/1"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/metatable#setreadonly",
+		"code_sample": ""
+	},
+	"@roblox/global/makewriteable/param/0": {
+		"documentation": "The table to unfreeze."
+	},
+	"@roblox/global/makewriteable": {
+		"documentation": "Unfreezes object.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/makewriteable/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/metatable#makewriteable",
+		"code_sample": ""
+	},
+	"@roblox/global/makereadonly/param/0": {
+		"documentation": "The table to freeze."
+	},
+	"@roblox/global/makereadonly": {
+		"documentation": "Freezes object, where table.freeze would normally check for __metatable.",
+		"params": [
+			{
+				"name": "object",
+				"documentation": "@roblox/global/makereadonly/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/metatable#makereadonly",
+		"code_sample": ""
+	},
+
+	"COMMENT": "############### Miscellaneous ###############",
+	"COMMENT": "############### Miscellaneous ###############",
+	"COMMENT": "############### Miscellaneous ###############",
+	"@roblox/global/identifyexecutor/return/0": {
+		"documentation": "The name of the executor."
+	},
+	"@roblox/global/identifyexecutor/return/1": {
+		"documentation": "The version of the executor."
+	},
+	"@roblox/global/identifyexecutor": {
+		"documentation": "Returns the name and version of Potassium.",
+		"params": [],
+		"returns": ["@roblox/global/identifyexecutor/return/0", "@roblox/global/identifyexecutor/return/1"],
+		"learn_more_link": "https://docs.potassium.pro/environment/miscellaneous#identifyexecutor",
+		"code_sample": ""
+	},
+	"@roblox/global/lz4compress/param/0": {
+		"documentation": "The data to compress."
+	},
+	"@roblox/global/lz4compress/return/0": {
+		"documentation": "The compressed data."
+	},
+	"@roblox/global/lz4compress": {
+		"documentation": "Compresses data using LZ4 compression.",
+		"params": [
+			{
+				"name": "data",
+				"documentation": "@roblox/global/lz4compress/param/0"
+			}
+		],
+		"returns": ["@roblox/global/lz4compress/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/miscellaneous#lz4compress",
+		"code_sample": ""
+	},
+	"@roblox/global/lz4decompress/param/0": {
+		"documentation": "The compressed data."
+	},
+	"@roblox/global/lz4decompress/param/1": {
+		"documentation": "The size of the decompressed data."
+	},
+	"@roblox/global/lz4decompress/return/0": {
+		"documentation": "The decompressed data."
+	},
+	"@roblox/global/lz4decompress": {
+		"documentation": "Decompresses data using LZ4 compression, with the decompressed size specified by size.",
+		"params": [
+			{
+				"name": "data",
+				"documentation": "@roblox/global/lz4decompress/param/0"
+			},
+			{
+				"name": "size",
+				"documentation": "@roblox/global/lz4decompress/param/1"
+			}
+		],
+		"returns": ["@roblox/global/lz4decompress/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/miscellaneous#lz4decompress",
+		"code_sample": ""
+	},
+	"@roblox/global/messagebox/param/0": {
+		"documentation": "The text to display in the message box."
+	},
+	"@roblox/global/messagebox/param/1": {
+		"documentation": "The caption for the message box."
+	},
+	"@roblox/global/messagebox/param/2": {
+		"documentation": "The flags to control the appearance and behavior of the message box."
+	},
+	"@roblox/global/messagebox/return/0": {
+		"documentation": "The user input code."
+	},
+	"@roblox/global/messagebox": {
+		"documentation": "Creates a message box with the specified text, caption, and flags. Yields until the message box is closed, and returns the user input code.",
+		"params": [
+			{
+				"name": "text",
+				"documentation": "@roblox/global/messagebox/param/0"
+			},
+			{
+				"name": "caption",
+				"documentation": "@roblox/global/messagebox/param/1"
+			},
+			{
+				"name": "flags",
+				"documentation": "@roblox/global/messagebox/param/2"
+			}
+		],
+		"returns": ["@roblox/global/messagebox/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/miscellaneous#messagebox",
+		"code_sample": ""
+	},
+	"@roblox/global/queue_on_teleport/param/0": {
+		"documentation": "The code to execute after teleporting."
+	},
+	"@roblox/global/queue_on_teleport": {
+		"documentation": "Queues the specified script to be executed after the player teleports to a different place.",
+		"params": [
+			{
+				"name": "code",
+				"documentation": "@roblox/global/queue_on_teleport/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/miscellaneous#queue_on_teleport",
+		"code_sample": ""
+	},
+	"@roblox/global/request/param/0": {
+		"documentation": "The options for the HTTP request."
+	},
+	"@roblox/global/request/return/0": {
+		"documentation": "The HTTP response."
+	},
+	"@roblox/global/request": {
+		"documentation": "Sends an HTTP request using the specified options. Yields until the request is complete, and returns the response.",
+		"params": [
+			{
+				"name": "options",
+				"documentation": "@roblox/global/request/param/0"
+			}
+		],
+		"returns": ["@roblox/global/request/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/miscellaneous#request",
+		"code_sample": ""
+	},
+	"@roblox/global/getinternalparent/param/0": {
+		"documentation": "The instance to get the internal parent of."
+	},
+	"@roblox/global/getinternalparent/return/0": {
+		"documentation": "The internal parent of the instance."
+	},
+	"@roblox/global/getinternalparent": {
+		"documentation": "Returns the internal parent field of the instance.",
+		"params": [
+			{
+				"name": "instance",
+				"documentation": "@roblox/global/getinternalparent/param/0"
+			}
+		],
+		"returns": ["@roblox/global/getinternalparent/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/miscellaneous#getinternalparent",
+		"code_sample": ""
+	},
+	"@roblox/global/getfflag/param/0": {
+		"documentation": "The name of the FFlag to get."
+	},
+	"@roblox/global/getfflag/return/0": {
+		"documentation": "The value of the FFlag."
+	},
+	"@roblox/global/getfflag": {
+		"documentation": "Returns the value of fflag",
+		"params": [
+			{
+				"name": "fflag",
+				"documentation": "@roblox/global/getfflag/param/0"
+			}
+		],
+		"returns": ["@roblox/global/getfflag/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/miscellaneous#getfflag",
+		"code_sample": ""
+	},
+	"@roblox/global/setfflag/param/0": {
+		"documentation": "The name of the FFlag to set."
+	},
+	"@roblox/global/setfflag/param/1": {
+		"documentation": "The new value for the FFlag."
+	},
+	"@roblox/global/setfflag": {
+		"documentation": "Sets the value of fflag to value",
+		"params": [
+			{
+				"name": "fflag",
+				"documentation": "@roblox/global/setfflag/param/0"
+			},
+			{
+				"name": "value",
+				"documentation": "@roblox/global/setfflag/param/1"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/miscellaneous#setfflag",
+		"code_sample": ""
+	},
+	"@roblox/global/setinternalparent/param/0": {
+		"documentation": "The instance to modify."
+	},
+	"@roblox/global/setinternalparent/param/1": {
+		"documentation": "The new internal parent for the instance."
+	},
+	"@roblox/global/setinternalparent": {
+		"documentation": "Sets the internal parent field of `instance` to `newParent`",
+		"params": [
+			{
+				"name": "instance",
+				"documentation": "@roblox/global/setinternalparent/param/0"
+			},
+			{
+				"name": "newParent",
+				"documentation": "@roblox/global/setinternalparent/param/1"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/miscellaneous#setinternalparent",
+		"code_sample": ""
+	},
+	"@roblox/global/setclipboard/param/0": {
+		"documentation": "The text to copy to the clipboard."
+	},
+	"@roblox/global/setclipboard": {
+		"documentation": "Copies text to the clipboard.",
+		"params": [
+			{
+				"name": "text",
+				"documentation": "@roblox/global/setclipboard/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/miscellaneous#setclipboard",
+		"code_sample": ""
+	},
+	"@roblox/global/setfpscap/param/0": {
+		"documentation": "The new FPS cap. Set to 0 to disable the cap."
+	},
+	"@roblox/global/setfpscap": {
+		"documentation": "Sets the in-game FPS cap to fps. If fps is 0, the FPS cap is disabled.",
+		"params": [
+			{
+				"name": "fps",
+				"documentation": "@roblox/global/setfpscap/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/miscellaneous#setfpscap",
+		"code_sample": ""
+	},
+
+	"COMMENT": "############### Scripts ###############",
+	"COMMENT": "############### Scripts ###############",
+	"COMMENT": "############### Scripts ###############",
+	"@roblox/global/getgc/param/0": {
+		"documentation": "Whether to include tables in the list."
+	},
+	"@roblox/global/getgc/return/0": {
+		"documentation": "A list of objects in the Luau garbage collector."
+	},
+	"@roblox/global/getgc": {
+		"documentation": "Returns a list of objects in the Luau garbage collector.\n\nIf includeTables is false, tables will not be included in the list.",
+		"params": [
+			{
+				"name": "includeTables",
+				"documentation": "@roblox/global/getgc/param/0"
+			}
+		],
+		"returns": ["@roblox/global/getgc/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#getgc",
+		"code_sample": ""
+	},
+	"@roblox/global/getgenv/return/0": {
+		"documentation": "The custom global environment of the executor."
+	},
+	"@roblox/global/getgenv": {
+		"documentation": "Returns the custom global environment of the executor.",
+		"params": [],
+		"returns": ["@roblox/global/getgenv/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#getgenv",
+		"code_sample": ""
+	},
+	"@roblox/global/gettenv/param/0": {
+		"documentation": "The thread to get the environment of."
+	},
+	"@roblox/global/gettenv/return/0": {
+		"documentation": "The environment of the thread."
+	},
+	"@roblox/global/gettenv": {
+		"documentation": "Returns the environment of thread.",
+		"params": [
+			{
+				"name": "thread",
+				"documentation": "@roblox/global/gettenv/param/0"
+			}
+		],
+		"returns": ["@roblox/global/gettenv/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#gettenv",
+		"code_sample": ""
+	},
+	"@roblox/global/getreg/return/0": {
+		"documentation": "The lua registry."
+	},
+	"@roblox/global/getreg": {
+		"documentation": "Returns the lua registry.",
+		"params": [],
+		"returns": ["@roblox/global/getreg/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#getreg",
+		"code_sample": ""
+	},
+	"@roblox/global/getloadedmodules/return/0": {
+		"documentation": "A list of ModuleScripts that have been loaded."
+	},
+	"@roblox/global/getloadedmodules": {
+		"documentation": "Returns a list of ModuleScripts that have been loaded.",
+		"params": [],
+		"returns": ["@roblox/global/getloadedmodules/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#getloadedmodules",
+		"code_sample": ""
+	},
+	"@roblox/global/getrenv/return/0": {
+		"documentation": "The global environment of the game client."
+	},
+	"@roblox/global/getrenv": {
+		"documentation": "Returns the global environment of the game client. It can be used to access the global functions that LocalScripts and ModuleScripts use.",
+		"params": [],
+		"returns": ["@roblox/global/getrenv/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#getrenv",
+		"code_sample": ""
+	},
+	"@roblox/global/getrunningscripts/return/0": {
+		"documentation": "A list of scripts that are currently running."
+	},
+	"@roblox/global/getrunningscripts": {
+		"documentation": "Returns a list of scripts that are currently running.",
+		"params": [],
+		"returns": ["@roblox/global/getrunningscripts/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#getrunningscripts",
+		"code_sample": ""
+	},
+	"@roblox/global/getscriptbytecode/param/0": {
+		"documentation": "The script to get the bytecode from."
+	},
+	"@roblox/global/getscriptbytecode/return/0": {
+		"documentation": "The raw Luau bytecode of the script."
+	},
+	"@roblox/global/getscriptbytecode": {
+		"documentation": "Returns the raw Luau bytecode of the given script.",
+		"params": [
+			{
+				"name": "script",
+				"documentation": "@roblox/global/getscriptbytecode/param/0"
+			}
+		],
+		"returns": ["@roblox/global/getscriptbytecode/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#getscriptbytecode",
+		"code_sample": ""
+	},
+	"@roblox/global/getscriptclosure/param/0": {
+		"documentation": "The script to generate a closure from."
+	},
+	"@roblox/global/getscriptclosure/return/0": {
+		"documentation": "A new closure using the bytecode of the script."
+	},
+	"@roblox/global/getscriptclosure": {
+		"documentation": "Generates a new closure using the bytecode of script.",
+		"params": [
+			{
+				"name": "script",
+				"documentation": "@roblox/global/getscriptclosure/param/0"
+			}
+		],
+		"returns": ["@roblox/global/getscriptclosure/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#getscriptclosure",
+		"code_sample": ""
+	},
+	"@roblox/global/getscripthash/param/0": {
+		"documentation": "The script to get the hash of."
+	},
+	"@roblox/global/getscripthash/return/0": {
+		"documentation": "A SHA384 hash of the script's bytecode."
+	},
+	"@roblox/global/getscripthash": {
+		"documentation": "Returns a SHA384 hash of the script's bytecode.",
+		"params": [
+			{
+				"name": "script",
+				"documentation": "@roblox/global/getscripthash/param/0"
+			}
+		],
+		"returns": ["@roblox/global/getscripthash/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#getscripthash",
+		"code_sample": ""
+	},
+	"@roblox/global/getscripts/return/0": {
+		"documentation": "A list of every script in the game."
+	},
+	"@roblox/global/getscripts": {
+		"documentation": "Returns a list of every script in the game.",
+		"params": [],
+		"returns": ["@roblox/global/getscripts/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#getscripts",
+		"code_sample": ""
+	},
+	"@roblox/global/getsenv/param/0": {
+		"documentation": "The script to get the environment of."
+	},
+	"@roblox/global/getsenv/return/0": {
+		"documentation": "The global environment of the script."
+	},
+	"@roblox/global/getsenv": {
+		"documentation": "Returns the global environment of the given script. It can be used to access variables and functions that are not defined as local.",
+		"params": [
+			{
+				"name": "script",
+				"documentation": "@roblox/global/getsenv/param/0"
+			}
+		],
+		"returns": ["@roblox/global/getsenv/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#getsenv",
+		"code_sample": ""
+	},
+	"@roblox/global/getthreadidentity/return/0": {
+		"documentation": "The identity of the current thread."
+	},
+	"@roblox/global/getthreadidentity": {
+		"documentation": "Returns the identity of the current thread.",
+		"params": [],
+		"returns": ["@roblox/global/getthreadidentity/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#getthreadidentity",
+		"code_sample": ""
+	},
+	"@roblox/global/setthreadidentity/param/0": {
+		"documentation": "The new identity for the current thread."
+	},
+	"@roblox/global/setthreadidentity": {
+		"documentation": "Sets the current thread identity.",
+		"params": [
+			{
+				"name": "identity",
+				"documentation": "@roblox/global/setthreadidentity/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/scripts#setthreadidentity",
+		"code_sample": ""
+	},
+
+	"COMMENT": "############### Web Sockets ###############",
+	"COMMENT": "############### Web Sockets ###############",
+	"COMMENT": "############### Web Sockets ###############",
+	"@roblox/global/WebSocket/connect/param/0": {
+		"documentation": "The URL to connect to."
+	},
+	"@roblox/global/WebSocket/connect/return/0": {
+		"documentation": "A WebSocketConnection object."
+	},
+	"@roblox/global/WebSocket/connect": {
+		"documentation": "Establishes a WebSocket connection to the specified URL.",
+		"params": [
+			{
+				"name": "url",
+				"documentation": "@roblox/global/WebSocket/connect/param/0"
+			}
+		],
+		"returns": ["@roblox/global/WebSocket/connect/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/websockets#websocket.connect",
+		"code_sample": "local ws = WebSocket.connect(\"ws://localhost:8080\")\n\nws.OnMessage:Connect(function(message)\n\tprint(message)\nend)\n\nws.OnClose:Connect(function()\n\tprint(\"Closed\")\nend)\n\nws:Send(\"Hello, World!\")"
+	},
+	"@roblox/global/WebSocketConnection/Send/param/0": {
+		"documentation": "The message to send."
+	},
+	"@roblox/global/WebSocketConnection/Send": {
+		"documentation": "Sends a message over the WebSocket connection.",
+		"params": [
+			{
+				"name": "message",
+				"documentation": "@roblox/global/WebSocketConnection/Send/param/0"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/websockets#websocketconnection",
+		"code_sample": ""
+	},
+	"@roblox/global/WebSocketConnection/Close": {
+		"documentation": "Closes the WebSocket connection.",
+		"params": [],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/websockets#websocketconnection",
+		"code_sample": ""
+	},
+	"@roblox/global/WebSocketConnection/OnMessage": {
+		"documentation": "Fired when a message is received over the WebSocket connection.",
+		"params": [
+			{
+				"name": "message",
+				"documentation": "The message received."
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/websockets#websocketconnection",
+		"code_sample": ""
+	},
+	"@roblox/global/WebSocketConnection/OnClose": {
+		"documentation": "Fired when the WebSocket connection is closed.",
+		"params": [],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/websockets#websocketconnection",
+		"code_sample": ""
+	},
+
+	"COMMENT": "############### Actor ###############",
+	"COMMENT": "############### Actor ###############",
+	"COMMENT": "############### Actor ###############",
+	"@roblox/global/create_comm_channel/return/0": {
+		"documentation": "The ID of the communication channel."
+	},
+	"@roblox/global/create_comm_channel/return/1": {
+		"documentation": "The `BindableEvent` associated with the communication channel."
+	},
+	"@roblox/global/create_comm_channel": {
+		"documentation": "Returns the channel and the associated ID.",
+		"params": [],
+		"returns": [
+			"@roblox/global/create_comm_channel/return/0",
+			"@roblox/global/create_comm_channel/return/1"
+		],
+		"learn_more_link": "https://docs.potassium.pro/environment/actor#create_comm_channel",
+		"code_sample": ""
+	},
+	"@roblox/global/get_comm_channel/param/0": {
+		"documentation": "The ID of the communication channel to get."
+	},
+	"@roblox/global/get_comm_channel/return/0": {
+		"documentation": "The `BindableEvent` associated with the communication channel, or `nil` if it doesn't exist."
+	},
+	"@roblox/global/get_comm_channel": {
+		"documentation": "Returns the communication channel if it exists.",
+		"params": [
+			{
+				"name": "id",
+				"documentation": "@roblox/global/get_comm_channel/param/0"
+			}
+		],
+		"returns": ["@roblox/global/get_comm_channel/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/actor#get_comm_channel",
+		"code_sample": ""
+	},
+	"@roblox/global/run_on_actor/param/0": {
+		"documentation": "The `Actor` to run the script on."
+	},
+	"@roblox/global/run_on_actor/param/1": {
+		"documentation": "The script code to run on the actor as a string."
+	},
+	"@roblox/global/run_on_actor": {
+		"documentation": "Runs a script on an actor thread.",
+		"params": [
+			{
+				"name": "actor",
+				"documentation": "@roblox/global/run_on_actor/param/0"
+			},
+			{
+				"name": "script",
+				"documentation": "@roblox/global/run_on_actor/param/1"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/actor#run_on_actor",
+		"code_sample": "run_on_actor(getactors()[1], [[\n    print(\"Hello, world!\")\n]])"
+	},
+	"@roblox/global/getactors/return/0": {
+		"documentation": "A table of all `Actor` instances that exist within the game."
+	},
+	"@roblox/global/getactors": {
+		"documentation": "Returns a table of all `Actor` instances that exist within the game.",
+		"params": [],
+		"returns": ["@roblox/global/getactors/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/actor#getactors",
+		"code_sample": ""
+	},
+	"@roblox/global/is_parallel/return/0": {
+		"documentation": "Whether the current thread is running on an `Actor`."
+	},
+	"@roblox/global/is_parallel": {
+		"documentation": "Returns if the current thread is running on an `Actor`.",
+		"params": [],
+		"returns": ["@roblox/global/is_parallel/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/actor#is_parallel",
+		"code_sample": ""
+	},
+	"@roblox/global/run_on_thread/param/0": {
+		"documentation": "The `thread` to run the script on."
+	},
+	"@roblox/global/run_on_thread/param/1": {
+		"documentation": "The script code to run on the thread as a string."
+	},
+	"@roblox/global/run_on_thread": {
+		"documentation": "Runs a script on a specified thread, actor threads only.",
+		"params": [
+			{
+				"name": "thread",
+				"documentation": "@roblox/global/run_on_thread/param/0"
+			},
+			{
+				"name": "script",
+				"documentation": "@roblox/global/run_on_thread/param/1"
+			}
+		],
+		"returns": [],
+		"learn_more_link": "https://docs.potassium.pro/environment/actor#run_on_thread",
+		"code_sample": "run_on_thread(getactorthreads()[1], [[\n    print(\"Hello, world!\")\n]])"
+	},
+	"@roblox/global/getactorthreads/return/0": {
+		"documentation": "A table of all `thread` objects that belong to actors."
+	},
+	"@roblox/global/getactorthreads": {
+		"documentation": "Returns all `thread` objects that belong to actors in a table.",
+		"params": [],
+		"returns": ["@roblox/global/getactorthreads/return/0"],
+		"learn_more_link": "https://docs.potassium.pro/environment/actor#getactorthreads",
+		"code_sample": ""
+	}
+}

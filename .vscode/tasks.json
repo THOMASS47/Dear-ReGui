@@ -1,0 +1,55 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build",
+			"type": "shell",
+			"command": "build.bat"
+		},
+		{
+			"label": "Upload",
+			"type": "shell",
+			"command": "upload.bat"
+		},
+		{
+			"label": "Build Watch",
+			"type": "shell",
+			"command": "watchexec",
+			"args": [
+				"-w",
+				"src",
+				"-w",
+				"executor-stuff/libs",
+				"-w",
+				"darklua.json",
+				"-e",
+				"lua,luau",
+				"./build.bat"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Upload Watch",
+			"type": "shell",
+			"command": "watchexec",
+			"args": ["-w", "out.luau", "-e", "luau", "./upload.bat"],
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Build and Upload",
+			"dependsOrder": "sequence",
+			"dependsOn": ["Build", "Upload"],
+			"problemMatcher": []
+		},
+		{
+			"label": "Build and Upload Watch",
+			"dependsOn": ["Build Watch", "Upload Watch"],
+			"problemMatcher": []
+		}
+	]
+}
