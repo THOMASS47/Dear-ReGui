@@ -7990,7 +7990,15 @@ export type _Canvas = {
 } & Elements
 
 export type Elements = {
-	Label: (self: any, Config: Label) -> TextLabel,
+	Label: (
+		self: any,
+		Config: {
+			Text: string?,
+			Bold: boolean?,
+			Italic: boolean?,
+			Font: string?,
+		}
+	) -> TextLabel,
 	Error: (self: any, Config: Error) -> TextLabel,
 	Button: (self: any, Config: Button) -> TextButton,
 	SmallButton: (self: any, Config: Button) -> TextButton,
@@ -8070,9 +8078,9 @@ export type TabsWindowConfig = {
 -- TODO: ReGui funcs
 -- TODO: Global config things
 export type ReGui = {
-	Window: (self: ReGui, Config: WindowConfig ) -> Window,
+	Window: (self: ReGui, Config: WindowConfig) -> Window,
 	TabsWindow: (self: ReGui, Config: TabsWindowConfig) -> TabsWindow,
-    Elements: Elements
+	Elements: Elements,
 }
 
 return (ReGui :: any) :: ReGui & typeof(ReGui)
