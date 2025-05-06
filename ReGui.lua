@@ -7980,15 +7980,6 @@ export type Error = {
 	Text: string?,
 }
 
-export type _Canvas = {
-	ClearChildElements: () -> (),
-	GetChildElements: () -> {},
-	GetObject: () -> Instance,
-	TagElements: (Objects: ObjectTable) -> (),
-	SetElementFocused: (Object: GuiObject, Data: any) -> (),
-	Remove: () -> (),
-} & Elements
-
 export type Elements = {
 	Label: (
 		self: any,
@@ -8019,7 +8010,7 @@ export type Elements = {
 	Bullet: (self: any, Config: Bullet) -> (_Canvas, GuiObject),
 	Row: (self: any, Config: Row) -> (_Canvas, GuiObject),
 	-- TODO:
-	--[[ 
+	--[[
         :SliderInt
         :SliderFloat
         :SliderEnum
@@ -8046,6 +8037,15 @@ export type Elements = {
         :PopupModal
     ]]
 }
+
+export type _Canvas = {
+	ClearChildElements: () -> (),
+	GetChildElements: () -> {},
+	GetObject: () -> Instance,
+	TagElements: (Objects: ObjectTable) -> (),
+	SetElementFocused: (Object: GuiObject, Data: any) -> (),
+	Remove: () -> (),
+} & Elements
 
 export type Window = WindowFlags & Elements
 export type WindowConfig = {
@@ -8078,9 +8078,232 @@ export type TabsWindowConfig = {
 -- TODO: ReGui funcs
 -- TODO: Global config things
 export type ReGui = {
-	Window: (self: ReGui, Config: WindowConfig) -> Window,
-	TabsWindow: (self: ReGui, Config: TabsWindowConfig) -> TabsWindow,
+	Window: (self: ReGui, Config: WindowConfig) -> (Window, CanvasGroup),
+	TabsWindow: (self: ReGui, Config: TabsWindowConfig) -> (TabsWindow, GuiObject),
 	Elements: Elements,
+
+	--- Prints a concatinated warn message from passed arguments
+	Warn: (self: any, ...any) -> (),
+
+	--- Checks if the range should be considered a double click
+	IsDoubleClick: (self: any, TickRange: number) -> boolean,
+
+	--- Initializes the ReGui module
+	Init: (self: any, Overwrites: table?) -> (),
+
+	--- Returns the ReGui version number string
+	GetVersion: (self: any) -> string,
+
+	--- Checks if there is a touchscreen
+	IsMobileDevice: (self: any) -> boolean,
+
+	--- Checks if there is a GamePad connected
+	IsConsoleDevice: (self: any) -> boolean,
+
+	--- Returns a Vector2 of the ViewportSize
+	GetScreenSize: (self: any) -> Vector2,
+
+	--- TODO
+	LoadPrefabs: (self: any) -> Folder?,
+
+	--- TODO
+	ResolveUIParent: (self: any) -> GuiObject?,
+
+	--[[
+    Compares the values in Source to the values in Base and adds the missing keys/values from Base if they are nil or missing
+
+    If Call is true, Base values should be functions used when Source is missing the key or value as they will be called to return the value
+    ]]
+	CheckConfig: (self: any, Source: table, Base: table, Call: boolean?, IgnoreKeys: table?) -> (),
+
+	--- TODO
+	CheckAssetUrl: (self: any, Url: string | number) -> string,
+
+	--- TODO
+	CreateInstance: (self: any, Class: string, Parent: Instance?, Properties: table?) -> Instance,
+
+	--- TODO
+	ConnectMouseEvent: (
+		self: any,
+		Object: GuiObject,
+		Config: {
+			Callback: (inputObject: InputObject, clickCount: number) -> (),
+			DoubleClick: boolean?,
+			OnlyMouseHovering: boolean?,
+		}
+	) -> (),
+
+	--- TODO
+	GetAnimation: (self: any, Animate: boolean?) -> TweenInfo,
+
+	--- Returns the number of items in a dict
+	GetDictSize: (self: any, Dict: table) -> number,
+
+	--- TODO
+	RemoveAnimations: (self: any, Object: GuiObject) -> (),
+
+	--- Returns the connected animaion data to the Object
+	GetAnimationData: (self: any, Object: GuiObject) -> table,
+
+	--- TODO
+	AddAnimationSignal: (self: any, Object: GuiObject, Connection: RBXScriptSignal) -> (),
+
+	--- Globally set whether animations are enabled
+	SetAnimationsEnabled: (self: any, Enabled: boolean) -> (),
+
+	--[[
+    Set the animation for the Object from the Reference argument
+	
+	Reference is looked up in the ReGui.Animations dict
+	
+	If a Listener is provided, it will listen to events like MouseHover otherwise it will use the Object 
+    ]]
+	SetAnimation: (self: any, Object: GuiObject, Reference: string | table, Listener: GuiObject?) -> (),
+
+	--- Returns a child instance with a matching ClassName otherwise it will create one
+	GetChildOfClass: (self: any, Object: GuiObject, ClassName: string) -> GuiObject,
+
+	--- TODO
+	SetPadding: (self: any, UiPadding: UIPadding, Padding: UDim) -> (),
+
+	--- TODO
+	ConnectDrag: (
+		self: any,
+		Frame: GuiObject,
+		Data: {
+			DragStart: ((InputVector: Vector2) -> ())?,
+			DragEnd: ((InputVector: Vector2) -> ())?,
+			DragMovement: ((InputVector: Vector2) -> ())?,
+			OnDragStateChange: ((DraggingState: boolean) -> ())?,
+		}
+	) -> (),
+
+	-- MakeDraggableFlags missing something that's used in func???
+	--- TODO
+	MakeDraggable: (
+		self: any,
+		Config: MakeDraggableFlags
+	) -> {
+		Enabled: boolean,
+
+		SetEnabled: (State: boolean) -> (),
+		CanDrag: () -> boolean,
+	},
+
+	--- TODO
+	MakeResizable: (self: any, Config: MakeResizableFlags) -> {
+		Grab: GuiObject,
+	},
+
+	-- Return isn't the actual type but yea
+	--- Checks if the passed InputObject is a mouse event
+	IsMouseEvent: (self: any, Input: InputObject, IgnoreMovement: boolean) -> boolean,
+
+	--- TODO
+	DetectHover: (self: any, Object: GuiObject, Config: DetectHover) -> DetectHover,
+
+	--- Position Windows in a cascade
+	StackWindows: (self: any) -> (),
+
+	--[[
+    Returns the flags connected with the Object
+
+    Internally, Object is the raw element object
+    ]]
+	GetElementFlags: (self: any, Object: GuiObject) -> table?,
+
+	--- TODO
+	UpdateColors: (self: any, Config: UpdateColors) -> (),
+
+	--- TODO
+	MultiUpdateColors: (self: any, Config: MultiUpdateColorsConfig) -> (),
+
+	--- TODO
+	ApplyStyle: (self: any, Object: GuiObject, StyleName: string) -> (),
+
+	-- Why are the parameters different in the actual implementation?
+	--[[
+    Merge two metatables together
+
+    This also accounts for setting values (__newindex)
+    ]]
+	MergeMetatables: <T, U>(self: any, First: T, Second: U) -> T & U,
+
+	--[=[
+	An improved table.concat function
+	@param Table Table to concatenate
+	@param Separator Defaults to " "
+    ]=]
+	Concat: (self: any, Table: table, Separator: string) -> string,
+
+	--- TODO
+	GetValueFromAliases: <T>(self: any, Aliases: { string }, Table: { [string]: T }) -> T,
+
+    -- 35
+
+	--
+	--
+	--
+	--
+	--
+	--
+	-- REference
+	--- TODO
+	DefineTheme: (self: any, Name: string, ThemeData: ThemeData) -> (),
+
+	--- Determines whether Window focuses should update
+	SetWindowFocusesEnabled: (self: any, Enabled: boolean) -> (),
+
+	--- Returns the Window with an active focus
+	GetFocusedWindow: (self: any) -> Window?,
+
+	--- Sets the currently focused window
+	SetFocusedWindow: (self: any, WindowClass: table?) -> (),
+
+	--- Checks if the Window can be brought into focus
+	WindowCanFocus: (self: any, WindowClass: table) -> boolean,
+
+	--[[
+    Set the tooltip for an object.
+
+    Render will be called with the tooltip canvas
+    ]]
+	SetItemTooltip: (self: any, Parent: GuiObject, Render: (Elements: _Canvas) -> ...any) -> (),
+
+	--- Returns an X and Y number for the location of the mouse
+	GetMouseLocation: (self: any) -> (number, number),
+
+	-- Looks up the theme and retrieves the key value
+	GetThemeKey: (self: any, Theme: string | table, Key: string) -> any,
+
+	--- Apply properties from a dictionary and without producing errors if they cannot be applied
+	SetProperties: (self: any, Object: Instance, Properties: table) -> (),
+
+	--- Returns a copy of an object from the prefabs folder that matches the name
+	InsertPrefab: (self: any, Name: string, Properties: any) -> GuiObject,
+
+	--- Returns the table or json string of the Ini settings
+	DumpIni: (self: any, JsonEncode: boolean?) -> table | string,
+
+	--- Loads the Ini into the Elements
+	LoadIni: (self: any, NewSettings: table | string, JsonEncoded: boolean?) -> (),
+
+	--[[
+    Manually declare an Element for a IniFlag
+
+    This is done automatically when an Element is created if the flags contain IniFlag
+    ]]
+	AddIniFlag: (self: any, Flag: string, Element: table) -> (),
+
+	--[[
+    Loads the values from the Value table into the Element
+
+    This function is used by :LoadIni
+        
+    Passed values will be checked in the ValueFunctions dict to check whether it should invoke a function, e.g :SetValue is required for Value
+
+    ]]
+	LoadIniIntoElement: (self: any, Element: table, Values: table) -> (),
 }
 
-return (ReGui :: any) :: ReGui & typeof(ReGui)
+return (ReGui :: any) :: ReGui
