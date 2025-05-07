@@ -16,10 +16,6 @@ ReGui:SetItemTooltip(Row, function(Canvas)
 	Canvas:Label({ Text = "Dump Ini" })
 end)
 
-local a = ReGui:MergeMetatables(setmetatable({ a = "" }, {}), { b = "" })
-
-local b = a.c
-
 Row:Button({
 	Text = "Dump Ini",
 	Callback = function()
