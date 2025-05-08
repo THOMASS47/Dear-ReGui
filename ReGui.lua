@@ -7981,6 +7981,7 @@ export type Error = {
 }
 
 export type Elements = {
+	--- https://depso.gitbook.io/regui/elements/label
 	Label: (
 		self: any,
 		Config: {
@@ -7990,15 +7991,87 @@ export type Elements = {
 			Font: string?,
 		}
 	) -> TextLabel,
-	Error: (self: any, Config: Error) -> TextLabel,
-	Button: (self: any, Config: Button) -> TextButton,
-	SmallButton: (self: any, Config: Button) -> TextButton,
-	RadioButton: (self: any, Config: RadioButton) -> GuiButton,
-	Image: (self: any, Config: Image) -> ImageButton,
-	VideoPlayer: (self: any, Config: VideoPlayer) -> VideoFrame,
-	Checkbox: (self: any, Config: Checkbox) -> (Checkbox, GuiObject),
-	Radiobox: (self: any, Config: Checkbox) -> (Checkbox, GuiObject),
-	Viewport: (self: any, Config: Viewport) -> Viewport,
+	--- https://depso.gitbook.io/regui/elements/error
+	Error: (self: any, Config: {
+		Text: string?,
+	}) -> TextLabel,
+	--- https://depso.gitbook.io/regui/elements/button
+	Button: (self: any, Config: {
+		Text: string?,
+		Callback: ((...any) -> unknown)?,
+	}) -> TextButton,
+	--- https://depso.gitbook.io/regui/elements/smallbutton
+	SmallButton: (
+		self: any,
+		Config: {
+			Text: string?,
+			Callback: ((...any) -> unknown)?,
+		}
+	) -> TextButton,
+	--- https://depso.gitbook.io/regui/elements/radiobutton
+	RadioButton: (
+		self: any,
+		Config: {
+			Text: string?,
+			Callback: ((...any) -> unknown)?,
+		}
+	) -> GuiButton,
+	--- https://depso.gitbook.io/regui/elements/image
+	Image: (
+		self: any,
+		Config: {
+			Image: string | number,
+			Callback: (...any) -> unknown,
+		}
+	) -> ImageButton,
+	--- https://depso.gitbook.io/regui/elements/videoplayer
+	VideoPlayer: (self: any, Config: {
+		Video: string | number,
+		Looped: boolean?,
+	}) -> VideoFrame,
+	--- https://depso.gitbook.io/regui/elements/checkbox
+	Checkbox: (
+		self: any,
+		Config: {
+			Label: string?,
+			Value: boolean,
+			NoAnimation: boolean?,
+			TickedImageSize: UDim2,
+			UntickedImageSize: UDim2,
+			Callback: ((...any) -> unknown)?,
+			--// Functions
+			SetValue: (self: Checkbox, Value: boolean, NoAnimation: boolean) -> ...any,
+			Toggle: (self: Checkbox) -> ...any,
+		}
+	) -> (Checkbox, GuiObject),
+	--- https://depso.gitbook.io/regui/elements/radiobox
+	Radiobox: (
+		self: any,
+		Config: {
+			Label: string?,
+			Value: boolean,
+			NoAnimation: boolean?,
+			TickedImageSize: UDim2,
+			UntickedImageSize: UDim2,
+			Callback: ((...any) -> unknown)?,
+			--// Functions
+			SetValue: (self: Checkbox, Value: boolean, NoAnimation: boolean) -> ...any,
+			Toggle: (self: Checkbox) -> ...any,
+		}
+	) -> (Checkbox, GuiObject),
+	--- https://depso.gitbook.io/regui/elements/viewport
+	Viewport: (
+		self: any,
+		Config: {
+			Model: Instance,
+			WorldModel: WorldModel?,
+			Viewport: ViewportFrame?,
+			Camera: Camera?,
+			Clone: boolean?, --// Otherwise will parent
+			SetCamera: (self: Viewport, Camera: Camera) -> Viewport,
+			SetModel: (self: Viewport, Model: Model, PivotTo: CFrame?) -> Model,
+		}
+	) -> (Viewport, GuiObject),
 	Console: (self: any, Config: Console) -> (Console, GuiObject),
 	Region: (self: any, Config: Region) -> (_Canvas, Instance),
 	List: (self: any, Config: List) -> (_Canvas, GuiObject),
@@ -8075,21 +8148,28 @@ export type TabsWindowConfig = {
 	AutoSelectNewTabs: boolean?,
 } & WindowConfig
 
--- TODO: ReGui funcs
--- TODO: Global config things
 export type ReGui = {
-	Window: (self: ReGui, Config: WindowConfig) -> (Window, CanvasGroup),
-	TabsWindow: (self: ReGui, Config: TabsWindowConfig) -> (TabsWindow, GuiObject),
+	Init: (self: any, Overwrites: table) -> (),
+
+	Window: (self: any, Config: WindowConfig) -> (Window, CanvasGroup),
+	TabsWindow: (self: any, Config: TabsWindowConfig) -> (TabsWindow, GuiObject),
 	Elements: Elements,
+	Container: {
+		Windows: { Window | TabsWindow },
+	},
 
-	--- TODO
-	DefineElement: (self: any) -> (),
+	Accent: typeof(ReGui.Accent),
 
-    --- TODO
-	DefineGlobalFlag: (self: any) -> (),
+	--- https://depso.gitbook.io/regui/plugins/custom-elements#defineelement
+	DefineElement: (self: any, Name: string, Data: table) -> (),
 
-    --- TODO
+	--- https://depso.gitbook.io/regui/plugins/custom-flags#basic-flag-example-for-visibility
+	DefineGlobalFlag: (self: any, Flag: table) -> (),
+
+	--- https://depso.gitbook.io/regui/plugins/custom-themes#creating-a-theme
 	DefineTheme: (self: any, Name: string, ThemeData: ThemeData) -> (),
+
+	---- https://depso.gitbook.io/regui/regui-functions ----
 
 	--- Determines whether Window focuses should update
 	SetWindowFocusesEnabled: (self: any, Enabled: boolean) -> (),
@@ -8121,6 +8201,15 @@ export type ReGui = {
 
 	--- Returns a copy of an object from the prefabs folder that matches the name
 	InsertPrefab: (self: any, Name: string, Properties: any) -> GuiObject,
+
+	--[[
+    Like :SetProperties, this function checks ReGui.Flags for a function connected to that property key. Custom flags are documented here
+      
+    Class is the properties table
+    ]]
+	ApplyFlags: (self: any, Data: ApplyFlags) -> (),
+
+	---- https://depso.gitbook.io/regui/configuration-saving ----
 
 	--- Returns the table or json string of the Ini settings
 	DumpIni: (self: any, JsonEncode: boolean?) -> table | string,
