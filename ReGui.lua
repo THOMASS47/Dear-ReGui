@@ -8072,16 +8072,111 @@ export type Elements = {
 			SetModel: (self: Viewport, Model: Model, PivotTo: CFrame?) -> Model,
 		}
 	) -> (Viewport, GuiObject),
-	Console: (self: any, Config: Console) -> (Console, GuiObject),
-	Region: (self: any, Config: Region) -> (_Canvas, Instance),
-	List: (self: any, Config: List) -> (_Canvas, GuiObject),
-	CollapsingHeader: (self: any, Config: CollapsingHeader) -> (_Canvas, GuiObject),
-	TreeNode: (self: any, Config: CollapsingHeader) -> (_Canvas, GuiObject),
-	Separator: (self: any, Config: Separator) -> GuiObject,
-	Indent: (self: any, Config: Indent) -> _Canvas,
-	BulletText: (self: any, Config: BulletText) -> GuiObject,
-	Bullet: (self: any, Config: Bullet) -> (_Canvas, GuiObject),
-	Row: (self: any, Config: Row) -> (_Canvas, GuiObject),
+	--- https://depso.gitbook.io/regui/elements/console
+	Console: (
+		self: any,
+		Config: {
+			Enabled: boolean?,
+			ReadOnly: boolean?,
+			Value: string?,
+			RichText: boolean?,
+			TextWrapped: boolean?,
+			LineNumbers: boolean?,
+			AutoScroll: boolean,
+			LinesFormat: string,
+			MaxLines: number,
+			UpdateLineNumbers: (Console) -> Console,
+			UpdateScroll: (Console) -> Console,
+			SetValue: (Console, Value: string) -> Console,
+			GetValue: (Console) -> string,
+			Clear: (Console) -> Console,
+			AppendText: (Console, ...string) -> Console,
+			CheckLineCount: (Console) -> Console,
+		}
+	) -> (Console, GuiObject),
+	--- https://depso.gitbook.io/regui/elements/region
+	Region: (self: any, Config: {
+		Scroll: boolean?,
+	}) -> (_Canvas, GuiObject),
+	--- https://depso.gitbook.io/regui/elements/list
+	List: (self: any, Config: {
+		Padding: number?,
+	}) -> (_Canvas, GuiObject),
+	--- https://depso.gitbook.io/regui/elements/collapsingheader
+	CollapsingHeader: (
+		self: any,
+		Config: {
+			Title: string,
+			CollapseIcon: string?,
+			Icon: string?,
+			NoAnimation: boolean?,
+			Collapsed: boolean?,
+			Offset: number?,
+			NoArrow: boolean?,
+			OpenOnDoubleClick: boolean?, -- Need double-click to open node
+			OpenOnArrow: boolean?, -- Only open when clicking on the arrow
+			Activated: (CollapsingHeader) -> nil,
+			--// Functions
+			Remove: (CollapsingHeader) -> nil,
+			SetArrowVisible: (CollapsingHeader, Visible: boolean) -> nil,
+			SetTitle: (CollapsingHeader, Title: string) -> nil,
+			SetIcon: (CollapsingHeader, Icon: string) -> nil,
+			SetVisible: (CollapsingHeader, Visible: boolean) -> nil,
+			SetCollapsed: (CollapsingHeader, Open: boolean) -> CollapsingHeader,
+		}
+	) -> (_Canvas, GuiObject),
+	--- https://depso.gitbook.io/regui/elements/treenode
+	TreeNode: (
+		self: any,
+		Config: {
+			Title: string,
+			CollapseIcon: string?,
+			Icon: string?,
+			NoAnimation: boolean?,
+			Collapsed: boolean?,
+			Offset: number?,
+			NoArrow: boolean?,
+			OpenOnDoubleClick: boolean?, -- Need double-click to open node
+			OpenOnArrow: boolean?, -- Only open when clicking on the arrow
+			Activated: (CollapsingHeader) -> nil,
+			--// Functions
+			Remove: (CollapsingHeader) -> nil,
+			SetArrowVisible: (CollapsingHeader, Visible: boolean) -> nil,
+			SetTitle: (CollapsingHeader, Title: string) -> nil,
+			SetIcon: (CollapsingHeader, Icon: string) -> nil,
+			SetVisible: (CollapsingHeader, Visible: boolean) -> nil,
+			SetCollapsed: (CollapsingHeader, Open: boolean) -> CollapsingHeader,
+		}
+	) -> (_Canvas, GuiObject),
+	--- https://depso.gitbook.io/regui/elements/separator
+	Separator: (self: any, Config: {
+		Text: string?,
+	}) -> GuiObject,
+	--- https://depso.gitbook.io/regui/elements/indent
+	Indent: (self: any, Config: {
+		Offset: number?,
+	}) -> _Canvas,
+	--- https://depso.gitbook.io/regui/elements/bullettext
+	BulletText: (
+		self: any,
+		Config: {
+			Padding: number,
+			Icon: (string | number)?,
+			Rows: {
+				[number]: string?,
+			},
+		}
+	) -> (),
+	--- https://depso.gitbook.io/regui/elements/bullet
+	Bullet: (self: any, Config: {
+		Padding: number?,
+	}) -> (_Canvas, GuiObject),
+	--- https://depso.gitbook.io/regui/elements/row
+	Row: (self: any, Config: {
+		Spacing: number?,
+		Expand: (Row) -> Row,
+	}) -> (_Canvas, GuiObject),
+
 	-- TODO:
 	--[[
         :SliderInt
@@ -8148,6 +8243,7 @@ export type TabsWindowConfig = {
 	AutoSelectNewTabs: boolean?,
 } & WindowConfig
 
+-- TODO: Window can also be used on canvases but the type would be impossible
 export type ReGui = {
 	Init: (self: any, Overwrites: table) -> (),
 
