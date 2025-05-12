@@ -7,6 +7,7 @@ ReGui:Init({
 --// Configuration saving demo
 local ConfigSavingWindow = ReGui:Window({
 	Title = "Configuration saviing",
+    Size = UDim2.fromOffset(300, 200),
 })
 
 local Row = ConfigSavingWindow:Row()

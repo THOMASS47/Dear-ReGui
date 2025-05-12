@@ -7929,57 +7929,6 @@ ReGui:DefineElement("PopupModal", {
 	end,
 })
 
---[[ Elements
-:Label
-:Error
-:Button
-:SmallButton
-:RadioButton
-:Image
-:VideoPlayer
-:Checkbox
-:Radiobox
-:Viewport
-:Console
-:Region
-:List
-:CollapsingHeader
-:TreeNode
-:Separator
-:Indent
-:BulletText
-:Bullet
-:Row
-:SliderInt
-:SliderFloat
-:SliderEnum
-:SliderColor3
-:SliderCFrame
-:SliderProgress
-:DragInt
-:DragFloat
-:DragColor3
-:DragCFrame
-:InputText
-:InputTextMultiline
-:InputInt
-:InputColor3
-:InputCFrame
-:ProgressBar
-:Combo
-:Keybind
-:PlotHistogram
-:Table
-:TabSelector
-:Window
-:TabsWindow
-:PopupModal ]]
-
--- Why is for example Label type defined but not Error
-export type Error = {
-	Text: string?,
-}
-
 export type Elements = {
 	--- https://depso.gitbook.io/regui/elements/label
 	Label: (
@@ -8025,10 +7974,14 @@ export type Elements = {
 		}
 	) -> ImageButton,
 	--- https://depso.gitbook.io/regui/elements/videoplayer
-	VideoPlayer: (self: any, Config: {
-		Video: string | number,
-		Looped: boolean?,
-	}) -> VideoFrame,
+	VideoPlayer: (
+		self: any,
+		Config: {
+			Video: string | number,
+			Looped: boolean?,
+			Play: (self: VideoPlayer) -> (),
+		} & VideoPlayer
+	) -> VideoFrame,
 	--- https://depso.gitbook.io/regui/elements/checkbox
 	Checkbox: (
 		self: any,
@@ -8221,6 +8174,7 @@ export type WindowConfig = {
 	CloseCallback: ((Window) -> boolean?)?,
 	Collapsed: boolean?,
 	IsDragging: boolean?,
+    Size: UDim2?,
 	MinSize: Vector2?,
 	Theme: any?,
 	Title: string?,
@@ -8243,7 +8197,7 @@ export type TabsWindowConfig = {
 	AutoSelectNewTabs: boolean?,
 } & WindowConfig
 
--- TODO: Window can also be used on canvases but the type would be impossible
+-- TODO: Window can also be used on canvases but the type would be impossible or really annoying
 export type ReGui = {
 	Init: (self: any, Overwrites: table) -> (),
 
